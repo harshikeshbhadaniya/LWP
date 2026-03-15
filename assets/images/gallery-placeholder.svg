@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Industrial gallery image placeholder">
+  <defs>
+    <linearGradient id="g2" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="0.55" stop-color="#111827"/>
+      <stop offset="1" stop-color="#0f172a"/>
+    </linearGradient>
+    <linearGradient id="h" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#22c55e" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#60a5fa" stop-opacity="0.18"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#g2)"/>
+  <rect x="70" y="70" width="1060" height="760" rx="26" fill="url(#h)" fill-opacity="0.65" stroke="#94a3b8" stroke-opacity="0.25"/>
+  <g fill="#e2e8f0" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+    <text x="120" y="185" font-size="46" font-weight="800">Gallery</text>
+    <text x="120" y="235" font-size="20" fill="#cbd5e1">Shop floor " Products " Manufacturing quality</text>
+  </g>
+  <g fill="none" stroke="#93c5fd" stroke-opacity="0.25">
+    <path d="M130 710 L360 520 L520 640 L720 450 L930 610 L1070 500" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="360" cy="520" r="14" fill="#93c5fd" fill-opacity="0.45" stroke="none"/>
+    <circle cx="720" cy="450" r="14" fill="#93c5fd" fill-opacity="0.45" stroke="none"/>
+    <circle cx="1070" cy="500" r="14" fill="#93c5fd" fill-opacity="0.45" stroke="none"/>
+  </g>
+</svg>
+

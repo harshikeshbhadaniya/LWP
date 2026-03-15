@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-label="Hydraulic product placeholder image">
+  <defs>
+    <linearGradient id="pbg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#111827"/>
+    </linearGradient>
+    <linearGradient id="pm" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#94a3b8" stop-opacity="0.20"/>
+      <stop offset="1" stop-color="#e2e8f0" stop-opacity="0.12"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="900" fill="url(#pbg)"/>
+  <g transform="translate(110,120)">
+    <rect width="980" height="660" rx="28" fill="url(#pm)" stroke="#94a3b8" stroke-opacity="0.22"/>
+    <g transform="translate(110,110)" fill="none" stroke="#cbd5e1" stroke-opacity="0.55" stroke-width="18" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M140 250 h250 a60 60 0 0 1 60 60 v40 a60 60 0 0 1-60 60 h-250 a60 60 0 0 1-60-60 v-40 a60 60 0 0 1 60-60 z"/>
+      <path d="M390 290 h160"/>
+      <path d="M390 370 h160"/>
+      <path d="M550 270 v180"/>
+      <path d="M700 250 h90 a50 50 0 0 1 50 50 v110 a50 50 0 0 1-50 50 h-90"/>
+    </g>
+    <g fill="#e2e8f0" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial">
+      <text x="70" y="610" font-size="22" font-weight="700">Hydraulic Component</text>
+      <text x="70" y="642" font-size="16" fill="#cbd5e1">Image placeholder " Replace with real product photo</text>
+    </g>
+  </g>
+</svg>
+

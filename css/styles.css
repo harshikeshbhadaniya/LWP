@@ -1,0 +1,25 @@
+/* Minimal custom CSS (Tailwind does most of the work). */
+
+:root {
+  color-scheme: light;
+}
+
+/* Improve perceived smoothness for users who allow motion */
+@media (prefers-reduced-motion: no-preference) {
+  html:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Utility for crisp focus rings on non-Tailwind elements */
+.focus-ring:focus-visible {
+  outline: 2px solid rgba(37, 99, 235, 0.9);
+  outline-offset: 3px;
+  border-radius: 0.5rem;
+}
+
+/* Carousel fade (kept tiny; JS toggles opacity) */
+.carousel-slide {
+  transition: opacity 500ms ease;
+}
+

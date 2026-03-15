@@ -1,0 +1,413 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Laxmi Engineering Works manufactures precision hydraulic components including caps, nuts, adaptors, nipples and bends. Quality-focused, reliable industrial supply."
+    />
+    <title>Laxmi Engineering Works | Hydraulic Fittings & Pipes</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Arial"],
+            },
+            colors: {
+              ink: {
+                950: "#0b1220",
+              },
+            },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <!-- Floating contact buttons (left side) -->
+    <aside
+      class="fixed left-3 top-1/2 z-50 -translate-y-1/2 space-y-2"
+      aria-label="Quick contact"
+    >
+      <a
+        href="https://wa.me/919510916203"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="group flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-600 shadow-lg shadow-emerald-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <span class="text-white font-semibold">WA</span>
+      </a>
+      <a
+        href="mailto:laxmiengineeringworks.vapi@gmail.com"
+        class="group flex h-11 w-11 items-center justify-center rounded-xl bg-sky-600 shadow-lg shadow-sky-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+        aria-label="Email"
+        title="Email"
+      >
+        <span class="text-white font-semibold">@</span>
+      </a>
+      <a
+        href="tel:+919510916203"
+        class="group flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 shadow-lg shadow-slate-900/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+        aria-label="Phone call"
+        title="Call"
+      >
+        <span class="text-white font-semibold">Call</span>
+      </a>
+    </aside>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+      <nav class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <a href="./index.html" class="flex items-center gap-2">
+            <div
+              class="grid h-9 w-10 place-items-center rounded-xl bg-slate-900 text-white shadow-sm"
+              aria-hidden="true"
+            >
+              LEW
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-extrabold text-slate-900">
+                Laxmi Engineering Works
+              </div>
+              <div class="text-xs text-slate-500">Hydraulic Fittings & Pipes</div>
+            </div>
+          </a>
+
+          <button
+            id="navToggle"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
+            type="button"
+            aria-controls="navMenu"
+            aria-expanded="false"
+          >
+            Menu
+            <span class="text-slate-400" aria-hidden="true">☰</span>
+          </button>
+
+          <div class="hidden items-center gap-1 md:flex" aria-label="Primary">
+            <a
+              href="./index.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              aria-current="page"
+              >Home</a
+            >
+            <a
+              href="./products.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Products</a
+            >
+            <a
+              href="./inquiry.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Inquiry</a
+            >
+            <a
+              href="./contact.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="navMenu" class="hidden pb-4 md:hidden">
+          <div class="grid gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="./index.html"
+              >Home</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./products.html"
+              >Products</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./inquiry.html"
+              >Inquiry</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./contact.html"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero Carousel -->
+      <section class="bg-ink-950">
+        <div id="carousel" class="relative mx-auto max-w-6xl px-4 py-6 md:py-10">
+          <div class="relative overflow-hidden rounded-3xl ring-1 ring-white/10 shadow-2xl shadow-slate-900/40">
+            <!-- Slides -->
+            <div class="relative aspect-[16/9] md:aspect-[21/9]">
+              <!-- <img
+                class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-100"
+                src="./assets/images/hero-placeholder.svg"
+                alt="Precision hydraulic components by Laxmi Engineering Works"
+                loading="eager"
+                decoding="async"
+              />
+              <img
+                class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0"
+                src="./assets/images/hero-placeholder.svg"
+                alt="Reliable manufacturing and quality-first approach"
+                loading="lazy"
+                decoding="async"
+              />
+              <img
+                class="carousel-slide absolute inset-0 h-full w-full object-cover opacity-0"
+                src="./assets/images/hero-placeholder.svg"
+                alt="Hydraulic caps, nuts, adaptors, nipples and bends"
+                loading="lazy"
+                decoding="async"
+              /> -->
+
+              <!-- Overlay -->
+              <div class="absolute inset-0 bg-gradient-to-t from-ink-950/65 via-ink-950/20 to-transparent"></div>
+
+              <div class="absolute bottom-0 left-0 right-0 p-5 md:p-8">
+                <div class="max-w-2xl">
+                  <p class="text-sm font-semibold text-sky-200/90">Industrial • Hydraulic • Precision</p>
+                  <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+                    Built for pressure. Engineered for reliability.
+                  </h1>
+                  <p class="mt-3 text-base text-slate-200 md:text-lg">
+                    Laxmi Engineering Works delivering professional-grade hydraulic fitting with consistent finishing and
+                    dependable fitment.
+                  </p>
+                  <div class="mt-5 flex flex-col gap-3 sm:flex-row">
+                    <a
+                      href="./products.html"
+                      class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-900 shadow-lg shadow-black/20 transition hover:-translate-y-0.5 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                      >Explore Products</a
+                    >
+                    <a
+                      href="./inquiry.html"
+                      class="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-600/25 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                      >Send Inquiry</a
+                    >
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <button
+              id="carouselPrev"
+              type="button"
+              class="absolute left-3 top-1/2 -translate-y-1/2 rounded-2xl bg-white/10 px-3 py-2 text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-label="Previous slide"
+            >
+              ‹
+            </button>
+            <button
+              id="carouselNext"
+              type="button"
+              class="absolute right-3 top-1/2 -translate-y-1/2 rounded-2xl bg-white/10 px-3 py-2 text-sm font-semibold text-white ring-1 ring-white/15 backdrop-blur transition hover:bg-white/15 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+              aria-label="Next slide"
+            >
+              ›
+            </button>
+
+            <div class="absolute bottom-4 left-1/2 -translate-x-1/2">
+              <div id="carouselDots" class="flex items-center gap-2"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About -->
+      <section class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <div class="grid gap-10 md:grid-cols-2 md:items-center">
+          <div>
+            <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 md:text-3xl">
+              About Laxmi Engineering Works
+            </h2>
+            <p class="mt-4 text-slate-600 leading-relaxed">
+              We’re a manufacturing-focused business supplying industrial hydraulic components designed for consistent
+              performance. Our process emphasizes reliable tolerances, clean finishing, and dependable on-site support for
+              repeat requirements.
+            </p>
+            <div class="mt-6 grid gap-3 sm:grid-cols-2">
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="text-sm font-bold text-slate-900">Quality-first</div>
+                <div class="mt-1 text-sm text-slate-600">Built to meet real industrial expectations.</div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="text-sm font-bold text-slate-900">Fast response</div>
+                <div class="mt-1 text-sm text-slate-600">Quick inquiries and reliable communication.</div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="text-sm font-bold text-slate-900">Professional supply</div>
+                <div class="mt-1 text-sm text-slate-600">Standard products with consistent finish.</div>
+              </div>
+              <div class="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <div class="text-sm font-bold text-slate-900">Long-term support</div>
+                <div class="mt-1 text-sm text-slate-600">Repeat orders made easy.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative">
+            <div class="absolute -inset-4 rounded-[2rem] bg-gradient-to-br from-sky-200/70 via-white to-emerald-200/60 blur-2xl"></div>
+            <div class="relative overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-xl">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic component placeholder"
+                class="h-full w-full object-cover"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Gallery -->
+      <section class="bg-white border-y border-slate-200/70">
+        <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div class="flex items-end justify-between gap-4">
+            <div>
+              <h2 class="text-2xl font-extrabold tracking-tight text-slate-900 md:text-3xl">Gallery</h2>
+              <p class="mt-2 text-slate-600">A quick look at our industrial work and product finishing.</p>
+            </div>
+            <a
+              href="./products.html"
+              class="hidden rounded-2xl border border-slate-200 bg-white px-4 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:-translate-y-0.5 hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 sm:inline-flex"
+              >View Products</a
+            >
+          </div>
+
+          <div class="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <!-- Repeatable card -->
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Manufacturing and product quality"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Industrial work and finishing"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Hydraulic components on display"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Workshop and production line"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Component assembly and inspection"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+            <figure class="group overflow-hidden rounded-3xl border border-slate-200 bg-slate-50 shadow-sm transition hover:-translate-y-1 hover:shadow-lg">
+              <img
+                src="./assets/images/gallery-placeholder.svg"
+                alt="Industrial-grade hydraulic products"
+                class="h-56 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact preview -->
+      <section class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <div class="rounded-3xl bg-gradient-to-br from-slate-900 to-ink-950 p-8 text-white shadow-2xl shadow-slate-900/30 ring-1 ring-white/10 md:p-10">
+          <div class="grid gap-8 md:grid-cols-2 md:items-center">
+            <div>
+              <h2 class="text-2xl font-extrabold tracking-tight md:text-3xl">Contact us</h2>
+              <p class="mt-3 text-slate-200 leading-relaxed">
+                Need specs, availability, or a repeat requirement? Reach out and we’ll respond promptly with the right
+                details.
+              </p>
+              <div class="mt-6 flex flex-col gap-3 sm:flex-row">
+                <a
+                  href="./contact.html"
+                  class="inline-flex items-center justify-center rounded-2xl bg-white px-5 py-3 text-sm font-bold text-slate-900 transition hover:-translate-y-0.5 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                  >Find Us</a
+                >
+                <a
+                  href="./inquiry.html"
+                  class="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-5 py-3 text-sm font-bold text-white transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-300"
+                  >Send an Inquiry</a
+                >
+              </div>
+            </div>
+            <div class="rounded-3xl bg-white/5 p-6 ring-1 ring-white/10">
+              <div class="text-sm font-semibold text-slate-200">Quick details</div>
+              <dl class="mt-4 grid gap-4 text-sm">
+                <div>
+                  <dt class="text-slate-300">Phone</dt>
+                  <dd class="mt-1 font-semibold text-white">
+                    <a class="hover:underline" href="tel:+919510916203">+91 9510916203 (Mr. Mukesh Bhadaniya)</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-slate-300">Email</dt>
+                  <dd class="mt-1 font-semibold text-white">
+                    <a class="hover:underline" href="mailto:laxmiengineeringworks.vapi@gmail.com">laxmiengineeringworks.vapi@gmail.com</a>
+                  </dd>
+                </div>
+                <div>
+                  <dt class="text-slate-300">Business</dt>
+                  <dd class="mt-1 text-slate-200">All types of high and low pressure Hydraulic Fittings & Pipes</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <p class="text-center text-sm text-slate-600">
+          Copyright © 2026 | All Rights Reserved | Developed and maintained by
+          <span class="font-semibold text-slate-800">Harshikesh Bhadaniya</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
+

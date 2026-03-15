@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore our hydraulic products: caps, nuts, adaptors, nipples and bends by Laxmi Engineering Works."
+    />
+    <title>Products | Laxmi Engineering Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Arial"],
+            },
+            colors: { ink: { 950: "#0b1220" } },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <!-- Floating contact buttons (left side) -->
+    <aside
+      class="fixed left-3 top-1/2 z-50 -translate-y-1/2 space-y-2"
+      aria-label="Quick contact"
+    >
+      <a
+        href="https://wa.me/919999999999"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-600 shadow-lg shadow-emerald-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <span class="text-white font-semibold">WA</span>
+      </a>
+      <a
+        href="mailto:info@laxmiengworks.com"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-600 shadow-lg shadow-sky-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+        aria-label="Email"
+        title="Email"
+      >
+        <span class="text-white font-semibold">@</span>
+      </a>
+      <a
+        href="tel:+919999999999"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 shadow-lg shadow-slate-900/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+        aria-label="Phone call"
+        title="Call"
+      >
+        <span class="text-white font-semibold">Call</span>
+      </a>
+    </aside>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+      <nav class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <a href="./index.html" class="flex items-center gap-2">
+            <div class="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 text-white shadow-sm" aria-hidden="true">
+              LE
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-extrabold text-slate-900">Laxmi Engineering Works</div>
+              <div class="text-xs text-slate-500">Hydraulic components</div>
+            </div>
+          </a>
+
+          <button
+            id="navToggle"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
+            type="button"
+            aria-controls="navMenu"
+            aria-expanded="false"
+          >
+            Menu
+            <span class="text-slate-400" aria-hidden="true">☰</span>
+          </button>
+
+          <div class="hidden items-center gap-1 md:flex" aria-label="Primary">
+            <a
+              href="./index.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Home</a
+            >
+            <a
+              href="./products.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              aria-current="page"
+              >Products</a
+            >
+            <a
+              href="./inquiry.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Inquiry</a
+            >
+            <a
+              href="./contact.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="navMenu" class="hidden pb-4 md:hidden">
+          <div class="grid gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./index.html"
+              >Home</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="./products.html"
+              >Products</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./inquiry.html"
+              >Inquiry</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./contact.html"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Page header -->
+      <section class="bg-ink-950">
+        <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div class="max-w-3xl">
+            <p class="text-sm font-semibold text-sky-200/90">Our Products</p>
+            <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+              Professional hydraulic components
+            </h1>
+            <p class="mt-4 text-base text-slate-200 md:text-lg">
+              Reliable fitment and clean finishing for industrial applications. Replace placeholder images with actual
+              photos as needed.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products grid -->
+      <section class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <div class="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Card -->
+          <article
+            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="relative">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic Cap"
+                class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+            </div>
+            <div class="p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Hydraulic Cap</h2>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                Protective caps engineered for secure sealing and durable performance in hydraulic systems.
+              </p>
+              <a
+                href="./inquiry.html"
+                class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                Inquire
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="relative">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic Nuts"
+                class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+            </div>
+            <div class="p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Hydraulic Nuts</h2>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                Precision nuts designed for strong connections and consistent fitment across assemblies.
+              </p>
+              <a
+                href="./inquiry.html"
+                class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                Inquire
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="relative">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic Adaptors"
+                class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+            </div>
+            <div class="p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Hydraulic Adaptors</h2>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                Adaptors built to maintain flow integrity while enabling flexible connections.
+              </p>
+              <a
+                href="./inquiry.html"
+                class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                Inquire
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="relative">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic Nipples"
+                class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+            </div>
+            <div class="p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Hydraulic Nipples</h2>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                Robust nipples for secure coupling, optimized for industrial durability and fit.
+              </p>
+              <a
+                href="./inquiry.html"
+                class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                Inquire
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+
+          <article
+            class="group overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl"
+          >
+            <div class="relative">
+              <img
+                src="./assets/images/product-placeholder.svg"
+                alt="Hydraulic Bends"
+                class="h-52 w-full object-cover transition duration-300 group-hover:scale-[1.03]"
+                loading="lazy"
+                decoding="async"
+              />
+              <div class="absolute inset-0 bg-gradient-to-t from-black/35 to-transparent opacity-0 transition group-hover:opacity-100"></div>
+            </div>
+            <div class="p-6">
+              <h2 class="text-lg font-extrabold text-slate-900">Hydraulic Bends</h2>
+              <p class="mt-2 text-sm text-slate-600 leading-relaxed">
+                Clean bends engineered for smooth routing, solid integrity, and consistent geometry.
+              </p>
+              <a
+                href="./inquiry.html"
+                class="mt-4 inline-flex items-center gap-2 rounded-2xl bg-slate-900 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-400"
+              >
+                Inquire
+                <span aria-hidden="true">→</span>
+              </a>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="mx-auto max-w-6xl px-4 pb-14">
+        <div class="rounded-3xl border border-slate-200 bg-white p-8 shadow-sm md:p-10">
+          <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 class="text-xl font-extrabold text-slate-900 md:text-2xl">Need pricing or specifications?</h2>
+              <p class="mt-2 text-slate-600">
+                Share your requirement and we’ll respond with the right details.
+              </p>
+            </div>
+            <a
+              href="./inquiry.html"
+              class="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-600/20 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Send Inquiry</a
+            >
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <p class="text-center text-sm text-slate-600">
+          Copyright © 2026 | All Rights Reserved | Developed and maintained by
+          <span class="font-semibold text-slate-800">@Harshikesh Bhadaniya</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
+

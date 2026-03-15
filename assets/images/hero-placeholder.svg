@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="700" viewBox="0 0 1600 700" role="img" aria-label="Laxmi Engineering Works - industrial banner">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0f172a"/>
+      <stop offset="0.55" stop-color="#1e293b"/>
+      <stop offset="1" stop-color="#0b1220"/>
+    </linearGradient>
+    <linearGradient id="a" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#60a5fa" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#22c55e" stop-opacity="0.10"/>
+    </linearGradient>
+  </defs>
+  <rect width="1600" height="700" fill="url(#g)"/>
+  <path d="M0 470 C 320 410, 520 560, 820 500 C 1100 445, 1270 305, 1600 380 L1600 700 L0 700 Z" fill="url(#a)"/>
+  <g fill="none" stroke="#93c5fd" stroke-opacity="0.22">
+    <circle cx="1180" cy="180" r="140"/>
+    <circle cx="1180" cy="180" r="210"/>
+    <circle cx="1180" cy="180" r="280"/>
+  </g>
+  <g fill="#e2e8f0">
+    <text x="90" y="260" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="58" font-weight="800">
+      Laxmi Engineering Works
+    </text>
+    <text x="90" y="330" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="28" fill="#cbd5e1">
+      Precision hydraulic components " Reliable manufacturing " Quality-first
+    </text>
+  </g>
+  <g transform="translate(90, 390)">
+    <rect x="0" y="0" width="420" height="90" rx="18" fill="#0b1220" fill-opacity="0.55" stroke="#94a3b8" stroke-opacity="0.22"/>
+    <text x="24" y="38" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="18" fill="#e2e8f0">
+      Modern hydraulics. Industrial-grade finishes.
+    </text>
+    <text x="24" y="64" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial" font-size="16" fill="#cbd5e1">
+      Explore products " Send an inquiry " Get in touch
+    </text>
+  </g>
+</svg>
+

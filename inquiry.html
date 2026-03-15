@@ -1,0 +1,274 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Send an inquiry to Laxmi Engineering Works for hydraulic caps, nuts, adaptors, nipples and bends."
+    />
+    <title>Inquiry | Laxmi Engineering Works</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "system-ui", "Segoe UI", "Roboto", "Arial"],
+            },
+            colors: { ink: { 950: "#0b1220" } },
+          },
+        },
+      };
+    </script>
+    <link rel="stylesheet" href="./css/styles.css" />
+  </head>
+
+  <body class="bg-slate-50 text-slate-800 antialiased">
+    <!-- Floating contact buttons (left side) -->
+    <aside
+      class="fixed left-3 top-1/2 z-50 -translate-y-1/2 space-y-2"
+      aria-label="Quick contact"
+    >
+      <a
+        href="https://wa.me/919999999999"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-600 shadow-lg shadow-emerald-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-emerald-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500"
+        aria-label="WhatsApp"
+        title="WhatsApp"
+      >
+        <span class="text-white font-semibold">WA</span>
+      </a>
+      <a
+        href="mailto:info@laxmiengworks.com"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-sky-600 shadow-lg shadow-sky-600/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+        aria-label="Email"
+        title="Email"
+      >
+        <span class="text-white font-semibold">@</span>
+      </a>
+      <a
+        href="tel:+919999999999"
+        class="flex h-11 w-11 items-center justify-center rounded-xl bg-slate-900 shadow-lg shadow-slate-900/20 ring-1 ring-black/5 transition hover:-translate-y-0.5 hover:bg-slate-800 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-slate-500"
+        aria-label="Phone call"
+        title="Call"
+      >
+        <span class="text-white font-semibold">Call</span>
+      </a>
+    </aside>
+
+    <!-- Header / Navbar -->
+    <header class="sticky top-0 z-40 border-b border-slate-200/70 bg-white/80 backdrop-blur">
+      <nav class="mx-auto max-w-6xl px-4">
+        <div class="flex h-16 items-center justify-between">
+          <a href="./index.html" class="flex items-center gap-2">
+            <div class="grid h-9 w-9 place-items-center rounded-xl bg-slate-900 text-white shadow-sm" aria-hidden="true">
+              LE
+            </div>
+            <div class="leading-tight">
+              <div class="text-sm font-extrabold text-slate-900">Laxmi Engineering Works</div>
+              <div class="text-xs text-slate-500">Hydraulic components</div>
+            </div>
+          </a>
+
+          <button
+            id="navToggle"
+            class="inline-flex items-center gap-2 rounded-xl border border-slate-200 bg-white px-3 py-2 text-sm font-semibold text-slate-700 shadow-sm transition hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500 md:hidden"
+            type="button"
+            aria-controls="navMenu"
+            aria-expanded="false"
+          >
+            Menu
+            <span class="text-slate-400" aria-hidden="true">☰</span>
+          </button>
+
+          <div class="hidden items-center gap-1 md:flex" aria-label="Primary">
+            <a
+              href="./index.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Home</a
+            >
+            <a
+              href="./products.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Products</a
+            >
+            <a
+              href="./inquiry.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              aria-current="page"
+              >Inquiry</a
+            >
+            <a
+              href="./contact.html"
+              class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-100 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+              >Contact</a
+            >
+          </div>
+        </div>
+
+        <!-- Mobile menu -->
+        <div id="navMenu" class="hidden pb-4 md:hidden">
+          <div class="grid gap-2 rounded-2xl border border-slate-200 bg-white p-3 shadow-sm">
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./index.html"
+              >Home</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./products.html"
+              >Products</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-900 hover:bg-slate-50" href="./inquiry.html"
+              >Inquiry</a
+            >
+            <a class="rounded-xl px-3 py-2 text-sm font-semibold text-slate-700 hover:bg-slate-50" href="./contact.html"
+              >Contact</a
+            >
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <section class="bg-ink-950">
+        <div class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+          <div class="max-w-3xl">
+            <p class="text-sm font-semibold text-sky-200/90">Inquiry</p>
+            <h1 class="mt-2 text-3xl font-extrabold tracking-tight text-white md:text-5xl">
+              Tell us your requirement
+            </h1>
+            <p class="mt-4 text-base text-slate-200 md:text-lg">
+              Share product details, size, quantity, or application notes. We’ll respond with the right information.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="mx-auto max-w-6xl px-4 py-12 md:py-16">
+        <div class="grid gap-8 lg:grid-cols-[1.2fr_.8fr] lg:items-start">
+          <!-- Form -->
+          <div class="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm md:p-8">
+            <form id="inquiryForm" novalidate>
+              <div class="grid gap-5">
+                <div>
+                  <label for="inqName" class="text-sm font-semibold text-slate-800">Name</label>
+                  <input
+                    id="inqName"
+                    name="name"
+                    type="text"
+                    autocomplete="name"
+                    required
+                    minlength="2"
+                    placeholder="Your full name"
+                    class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-200"
+                  />
+                  <p id="errName" class="mt-2 hidden text-sm font-medium text-red-600"></p>
+                </div>
+
+                <div class="grid gap-5 sm:grid-cols-2">
+                  <div>
+                    <label for="inqEmail" class="text-sm font-semibold text-slate-800">Email ID</label>
+                    <input
+                      id="inqEmail"
+                      name="email"
+                      type="email"
+                      autocomplete="email"
+                      required
+                      placeholder="name@example.com"
+                      class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-200"
+                    />
+                    <p id="errEmail" class="mt-2 hidden text-sm font-medium text-red-600"></p>
+                  </div>
+
+                  <div>
+                    <label for="inqMobile" class="text-sm font-semibold text-slate-800">Mobile Number</label>
+                    <input
+                      id="inqMobile"
+                      name="mobile"
+                      type="tel"
+                      inputmode="tel"
+                      autocomplete="tel"
+                      required
+                      minlength="10"
+                      maxlength="18"
+                      placeholder="+91 99999 99999"
+                      class="mt-2 w-full rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-200"
+                    />
+                    <p id="errMobile" class="mt-2 hidden text-sm font-medium text-red-600"></p>
+                  </div>
+                </div>
+
+                <div>
+                  <label for="inqMessage" class="text-sm font-semibold text-slate-800">Message</label>
+                  <textarea
+                    id="inqMessage"
+                    name="message"
+                    rows="6"
+                    required
+                    minlength="10"
+                    placeholder="Tell us what you need (product, size/spec, quantity, delivery timeline, etc.)"
+                    class="mt-2 w-full resize-y rounded-2xl border border-slate-200 bg-white px-4 py-3 text-sm text-slate-900 shadow-sm outline-none transition focus:border-sky-400 focus:ring-4 focus:ring-sky-200"
+                  ></textarea>
+                  <p id="errMessage" class="mt-2 hidden text-sm font-medium text-red-600"></p>
+                </div>
+
+                <div class="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                  <button
+                    type="submit"
+                    class="inline-flex items-center justify-center rounded-2xl bg-sky-600 px-5 py-3 text-sm font-bold text-white shadow-lg shadow-sky-600/20 transition hover:-translate-y-0.5 hover:bg-sky-700 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-sky-500"
+                  >
+                    Submit Inquiry
+                  </button>
+                  <p id="errForm" class="hidden text-sm font-semibold text-red-600"></p>
+                </div>
+              </div>
+            </form>
+          </div>
+
+          <!-- Helpful box -->
+          <aside class="rounded-3xl bg-slate-900 p-6 text-white shadow-xl shadow-slate-900/25 ring-1 ring-white/10 md:p-8">
+            <h2 class="text-lg font-extrabold">What to include</h2>
+            <ul class="mt-4 space-y-3 text-sm text-slate-200">
+              <li class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <span class="font-semibold text-white">Product</span>: Cap / Nuts / Adaptors / Nipples / Bends
+              </li>
+              <li class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <span class="font-semibold text-white">Specification</span>: size, thread, material, finish
+              </li>
+              <li class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <span class="font-semibold text-white">Quantity</span>: monthly requirement / one-time requirement
+              </li>
+              <li class="rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+                <span class="font-semibold text-white">Timeline</span>: delivery city and expected date
+              </li>
+            </ul>
+            <div class="mt-6 rounded-2xl bg-white/5 p-4 ring-1 ring-white/10">
+              <p class="text-sm text-slate-200">
+                Prefer calling?
+                <a class="font-semibold text-white hover:underline" href="tel:+919999999999">+91 99999 99999</a>
+              </p>
+            </div>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-slate-200 bg-white">
+      <div class="mx-auto max-w-6xl px-4 py-8">
+        <p class="text-center text-sm text-slate-600">
+          Copyright © 2026 | All Rights Reserved | Developed and maintained by
+          <span class="font-semibold text-slate-800">@Harshikesh Bhadaniya</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="./js/main.js"></script>
+  </body>
+</html>
+
