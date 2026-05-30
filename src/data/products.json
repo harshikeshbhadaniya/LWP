@@ -1,0 +1,142 @@
+[
+  {
+    "id": "p1",
+    "name": "Hydraulic Nipple",
+    "category": "Energy Systems",
+    "shortDescription": "High-efficiency pump for industrial fluid transfer applications.",
+    "description": "Designed for continuous operation, the Precision Hydraulic Pump delivers stable pressure and minimal vibration across heavy-duty installations. Perfect for manufacturing, mining, and offshore systems.",
+    "specifications": [
+      { "label": "Flow Rate", "value": "120 L/min" },
+      { "label": "Pressure Rating", "value": "350 bar" },
+      { "label": "Motor", "value": "7.5 kW, 3-phase" },
+      { "label": "Material", "value": "Stainless steel composite" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1598887142487-3b1b2b49f8d6?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1514986888952-8cd320577b14?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1555617117-08cc841b86f3?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": true,
+    "relatedIds": ["p2", "p3"]
+  },
+  {
+    "id": "p2",
+    "name": "Modular Control Cabinet",
+    "category": "Automation",
+    "shortDescription": "Field-ready control panels with flexible I/O and safety interlocks.",
+    "description": "Our Modular Control Cabinet integrates programmable logic controllers, power management, and environmental protection in a compact industrial enclosure. Ideal for process control and automation upgrades.",
+    "specifications": [
+      { "label": "Dimensions", "value": "900 x 800 x 300 mm" },
+      { "label": "Ingress Protection", "value": "IP65" },
+      { "label": "Power Input", "value": "400 VAC, 50/60Hz" },
+      { "label": "Expansion Slots", "value": "Up to 16 I/O modules" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1529333166437-7750a6dd5a70?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1596517238758-ebad0131a537?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": true,
+    "relatedIds": ["p1", "p4"]
+  },
+  {
+    "id": "p3",
+    "name": "Industrial Filtration Tower",
+    "category": "Processing",
+    "shortDescription": "High-capacity filtration module for liquids and gases.",
+    "description": "Built to withstand harsh industrial conditions, the Filtration Tower removes contaminants with precision-engineered media and an accessible maintenance layout.",
+    "specifications": [
+      { "label": "Capacity", "value": "2,500 m3/day" },
+      { "label": "Media Type", "value": "Multi-layer cartridge" },
+      { "label": "Operating Temp", "value": "-20°C to 120°C" },
+      { "label": "Warranty", "value": "24 months" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1495653767063-114787b77b23?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1532074205216-d0e1f8b453b1?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": false,
+    "relatedIds": ["p1", "p5"]
+  },
+  {
+    "id": "p4",
+    "name": "Advanced Conveyor Module",
+    "category": "Material Handling",
+    "shortDescription": "Durable conveyor systems for precision material flow and integration.",
+    "description": "The Advanced Conveyor Module supports high-speed transport and adaptive control, combining structural strength with quiet, low-maintenance operation.",
+    "specifications": [
+      { "label": "Max Load", "value": "1,200 kg" },
+      { "label": "Belt Width", "value": "800 mm" },
+      { "label": "Drive Type", "value": "Gear motor with servo control" },
+      { "label": "Warranty", "value": "18 months" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1581091012184-8c587a102a51?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1516126491303-6dad4bdf1f14?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": true,
+    "relatedIds": ["p2", "p6"]
+  },
+  {
+    "id": "p5",
+    "name": "Thermal Management Unit",
+    "category": "Energy Systems",
+    "shortDescription": "Precision climate control for process equipment and enclosed systems.",
+    "description": "The Thermal Management Unit maintains optimum temperatures using a modular heat exchanger and active control logic for reliable performance across critical installations.",
+    "specifications": [
+      { "label": "Cooling Capacity", "value": "1800 W" },
+      { "label": "Voltage", "value": "230 VAC" },
+      { "label": "Control", "value": "Digital thermostat with remote diagnostics" },
+      { "label": "Protection", "value": "Overload and frost prevention" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1481277542470-605612bd2d61?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1516259762381-22954d7d3ad2?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": false,
+    "relatedIds": ["p3", "p6"]
+  },
+  {
+    "id": "p7",
+    "name": "JCB Hydraulic Pipe Assembly",
+    "category": "Hydraulic Piping",
+    "shortDescription": "High-strength hydraulic pipes for JCB equipment and heavy machinery.",
+    "description": "Manufactured for JCB hydraulic systems, these pipe assemblies deliver leak-resistant pressure performance for earthmoving and industrial applications. Available in custom lengths with precision fittings for durable service.",
+    "specifications": [
+      { "label": "Pressure Rating", "value": "320 bar" },
+      { "label": "Material", "value": "High-grade steel with corrosion-resistant coating" },
+      { "label": "Inner Diameter", "value": "12 mm to 50 mm" },
+      { "label": "Compatibility", "value": "JCB, heavy equipment, hydraulic power units" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1525199362465-18c248a685d8?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1545233413-0f5a3952d8d4?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1516117172878-fd2c41f4a759?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": true,
+    "relatedIds": ["p1", "p3"]
+  },
+  {
+    "id": "p6",
+    "name": "Remote Monitoring Sensor",
+    "category": "Automation",
+    "shortDescription": "Industrial IoT sensor for real-time equipment health and diagnostics.",
+    "description": "The Remote Monitoring Sensor simplifies condition-based maintenance by delivering accurate telemetry, alerts, and cloud-ready integration for manufacturing floor assets.",
+    "specifications": [
+      { "label": "Signal Type", "value": "4-20mA / Modbus RTU" },
+      { "label": "Battery Life", "value": "Up to 5 years" },
+      { "label": "Enclosure", "value": "IP67 rated" },
+      { "label": "Connectivity", "value": "Wi-Fi / Ethernet" }
+    ],
+    "images": [
+      "https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1545239351-1141bd82e8a6?auto=format&fit=crop&w=1200&q=80"
+    ],
+    "featured": false,
+    "relatedIds": ["p2", "p4"]
+  }
+]
