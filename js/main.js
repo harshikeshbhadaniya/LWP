@@ -5,6 +5,44 @@
 'use strict';
 
 /* ============================================================
+   0. BANNER POPUP — shows on every page load after loader
+   ============================================================ */
+(function () {
+  var overlay  = document.getElementById('bannerPopup');
+  var closeBtn = document.getElementById('bannerPopupClose');
+  var skipBtn  = document.getElementById('bannerPopupSkip');
+  var ctaBtn   = document.getElementById('bannerPopupCta');
+  if (!overlay) return;
+
+  function openPopup() {
+    overlay.classList.add('show');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closePopup() {
+    overlay.classList.remove('show');
+    document.body.style.overflow = '';
+  }
+
+  // Show after page loader finishes (1.7s) + small buffer
+  setTimeout(openPopup, 2200);
+
+  if (closeBtn) closeBtn.addEventListener('click', closePopup);
+  if (skipBtn)  skipBtn.addEventListener('click',  closePopup);
+  if (ctaBtn)   ctaBtn.addEventListener('click',   closePopup);
+
+  // Click outside the box to close
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) closePopup();
+  });
+
+  // Escape key to close
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape') closePopup();
+  });
+})();
+
+/* ============================================================
    1. PAGE LOADER
    ============================================================ */
 window.addEventListener('load', function () {
