@@ -49,6 +49,102 @@ input, textarea, select, button { font-family: inherit; }
 ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 3px; }
 
 /* ============================================================
+   BANNER POPUP
+   ============================================================ */
+.banner-popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.72);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .4s ease, visibility .4s ease;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+.banner-popup-overlay.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.banner-popup-box {
+  position: relative;
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  max-width: 560px;
+  width: 100%;
+  box-shadow: 0 24px 80px rgba(0,0,0,.45);
+  transform: scale(.88) translateY(20px);
+  transition: transform .4s cubic-bezier(.34,1.56,.64,1);
+}
+.banner-popup-overlay.show .banner-popup-box {
+  transform: scale(1) translateY(0);
+}
+
+.banner-popup-close {
+  position: absolute;
+  top: 12px; right: 12px;
+  width: 34px; height: 34px;
+  background: rgba(0,0,0,.55);
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  font-size: .95rem;
+  cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 2;
+  transition: background .25s ease, transform .25s ease;
+}
+.banner-popup-close:hover {
+  background: var(--primary);
+  transform: rotate(90deg);
+}
+
+.banner-popup-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.banner-popup-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: var(--bg);
+  gap: 12px;
+}
+.banner-popup-skip {
+  background: none;
+  border: 2px solid var(--border);
+  border-radius: 8px;
+  padding: 8px 18px;
+  font-size: .85rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all .25s ease;
+}
+.banner-popup-skip:hover {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .banner-popup-box { border-radius: 14px; }
+  .banner-popup-footer { flex-direction: column; }
+  .banner-popup-footer .btn,
+  .banner-popup-skip { width: 100%; justify-content: center; text-align: center; }
+}
+
+/* ============================================================
    GLOBAL MOBILE SAFETY
    ============================================================ */
 html, body {
