@@ -1,384 +1,232 @@
 /* ============================================================
-   LAXMI ENGINEERING WORKS — MAIN JAVASCRIPT
+   LAXMI ENGINEERING WORKS — MAIN JS
    ============================================================ */
-
 'use strict';
 
-/* ============================================================
-   0. BANNER POPUP — shows on every page load after loader
-   ============================================================ */
-(function () {
-  var overlay  = document.getElementById('bannerPopup');
-  var closeBtn = document.getElementById('bannerPopupClose');
-  var skipBtn  = document.getElementById('bannerPopupSkip');
-  var ctaBtn   = document.getElementById('bannerPopupCta');
-  if (!overlay) return;
-
-  function openPopup() {
-    overlay.classList.add('show');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function closePopup() {
-    overlay.classList.remove('show');
-    document.body.style.overflow = '';
-  }
-
-  // Show after page loader finishes (1.7s) + small buffer
-  setTimeout(openPopup, 2200);
-
-  if (closeBtn) closeBtn.addEventListener('click', closePopup);
-  if (skipBtn)  skipBtn.addEventListener('click',  closePopup);
-  if (ctaBtn)   ctaBtn.addEventListener('click',   closePopup);
-
-  // Click outside the box to close
-  overlay.addEventListener('click', function (e) {
-    if (e.target === overlay) closePopup();
-  });
-
-  // Escape key to close
-  document.addEventListener('keydown', function (e) {
-    if (e.key === 'Escape') closePopup();
-  });
-})();
-
-/* ============================================================
-   1. PAGE LOADER
-   ============================================================ */
+/* ── 1. PRELOADER ─────────────────────────────────────── */
 window.addEventListener('load', function () {
-  const loader = document.getElementById('loader');
-  if (!loader) return;
-  // Give a slight delay so the fill animation completes nicely
+  var pre = document.getElementById('preloader');
+  if (!pre) return;
   setTimeout(function () {
-    loader.classList.add('hidden');
-    // Kick off entrance animations after loader disappears
-    setTimeout(triggerHeroAnimations, 300);
+    pre.classList.add('out');
+    // hero entrance after loader
+    setTimeout(function () {
+      document.querySelectorAll('.hero .fade-in').forEach(function (el, i) {
+        setTimeout(function () { el.classList.add('visible'); }, i * 120);
+      });
+    }, 300);
+    // show banner popup after loader
+    setTimeout(openPopup, 500);
   }, 1700);
 });
 
-function triggerHeroAnimations() {
-  // Animate elements that are already in viewport (hero section)
-  document.querySelectorAll('.hero .reveal-up, .hero .reveal-left, .hero .reveal-right')
-    .forEach(function (el, i) {
-      setTimeout(function () { el.classList.add('visible'); }, i * 120);
-    });
-}
-
-/* ============================================================
-   2. STICKY HEADER SHADOW
-   ============================================================ */
+/* ── 2. STICKY HEADER ─────────────────────────────────── */
 (function () {
-  var header = document.getElementById('header');
-  if (!header) return;
+  var h = document.getElementById('header');
+  if (!h) return;
   window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 30);
+    h.classList.toggle('scrolled', window.scrollY > 40);
   }, { passive: true });
 })();
 
-/* ============================================================
-   3. HAMBURGER MOBILE MENU
-   ============================================================ */
+/* ── 3. MOBILE NAV ────────────────────────────────────── */
 (function () {
-  var hamburger = document.getElementById('hamburger');
-  var navbar    = document.getElementById('navbar');
-  if (!hamburger || !navbar) return;
+  var toggle = document.getElementById('navToggle');
+  var menu   = document.getElementById('navMenu');
+  var header = document.getElementById('header');
+  if (!toggle || !menu) return;
 
-  hamburger.addEventListener('click', function () {
-    hamburger.classList.toggle('open');
-    navbar.classList.toggle('open');
-    document.body.style.overflow = navbar.classList.contains('open') ? 'hidden' : '';
+  toggle.addEventListener('click', function () {
+    toggle.classList.toggle('open');
+    menu.classList.toggle('open');
+    document.body.style.overflow = menu.classList.contains('open') ? 'hidden' : '';
   });
 
-  // Close on nav link click
-  navbar.querySelectorAll('.nav-link').forEach(function (link) {
+  menu.querySelectorAll('.nav-link').forEach(function (link) {
     link.addEventListener('click', function () {
-      hamburger.classList.remove('open');
-      navbar.classList.remove('open');
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
       document.body.style.overflow = '';
     });
   });
 
-  // Close on outside click
   document.addEventListener('click', function (e) {
-    if (!header.contains(e.target) && navbar.classList.contains('open')) {
-      hamburger.classList.remove('open');
-      navbar.classList.remove('open');
+    if (!header.contains(e.target) && menu.classList.contains('open')) {
+      toggle.classList.remove('open');
+      menu.classList.remove('open');
       document.body.style.overflow = '';
     }
   });
 })();
 
-/* ============================================================
-   4. ACTIVE NAV LINK ON SCROLL (Intersection Observer)
-   ============================================================ */
+/* ── 4. ACTIVE NAV ON SCROLL ──────────────────────────── */
 (function () {
-  var sections = document.querySelectorAll('section[id], div[id]');
-  var navLinks = document.querySelectorAll('.nav-link');
-
-  if (!sections.length || !navLinks.length) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        navLinks.forEach(function (link) {
-          link.classList.remove('active');
-          if (link.getAttribute('href') === '#' + entry.target.id) {
-            link.classList.add('active');
-          }
+  var secs  = document.querySelectorAll('section[id]');
+  var links = document.querySelectorAll('.nav-link');
+  if (!secs.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) {
+        links.forEach(function (l) {
+          l.classList.toggle('active', l.getAttribute('href') === '#' + e.target.id);
         });
       }
     });
-  }, { rootMargin: '-40% 0px -55% 0px' });
-
-  sections.forEach(function (s) { observer.observe(s); });
+  }, { rootMargin: '-45% 0px -50% 0px' });
+  secs.forEach(function (s) { obs.observe(s); });
 })();
 
-/* ============================================================
-   5. SCROLL REVEAL (Intersection Observer)
-   ============================================================ */
+/* ── 5. FADE-IN ON SCROLL ─────────────────────────────── */
 (function () {
-  var revealEls = document.querySelectorAll('.reveal-up, .reveal-left, .reveal-right');
-  if (!revealEls.length) return;
-
-  var observer = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        observer.unobserve(entry.target); // animate once
-      }
+  var els = document.querySelectorAll('.fade-in');
+  if (!els.length) return;
+  var obs = new IntersectionObserver(function (entries) {
+    entries.forEach(function (e) {
+      if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
     });
-  }, { threshold: 0.12 });
-
-  revealEls.forEach(function (el) { observer.observe(el); });
+  }, { threshold: 0.1 });
+  els.forEach(function (el) { obs.observe(el); });
 })();
 
-/* ============================================================
-   6. ANIMATED COUNTERS (hero stats)
-   ============================================================ */
+/* ── 6. COUNTER ANIMATION ─────────────────────────────── */
 (function () {
-  var counters = document.querySelectorAll('.stat-num');
+  var counters = document.querySelectorAll('.count');
   if (!counters.length) return;
-
-  var started = false;
-
-  function startCounters() {
-    if (started) return;
-    started = true;
+  var done = false;
+  var obs = new IntersectionObserver(function (entries) {
+    if (!entries[0].isIntersecting || done) return;
+    done = true;
     counters.forEach(function (el) {
-      var target = parseInt(el.getAttribute('data-target'), 10);
-      var duration = 1800;
-      var start = null;
-
+      var target = +el.getAttribute('data-target');
+      var start  = null;
+      var dur    = 1800;
       function step(ts) {
         if (!start) start = ts;
-        var progress = Math.min((ts - start) / duration, 1);
-        var eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
-        el.textContent = Math.floor(eased * target).toLocaleString();
-        if (progress < 1) { requestAnimationFrame(step); }
-        else { el.textContent = target.toLocaleString(); }
+        var p = Math.min((ts - start) / dur, 1);
+        var e = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.floor(e * target).toLocaleString();
+        if (p < 1) requestAnimationFrame(step);
+        else el.textContent = target.toLocaleString();
       }
       requestAnimationFrame(step);
     });
-  }
-
-  // Trigger when hero stats enter viewport
-  var statsEl = document.querySelector('.hero-stats');
-  if (!statsEl) return;
-
-  var obs = new IntersectionObserver(function (entries) {
-    if (entries[0].isIntersecting) { startCounters(); obs.disconnect(); }
+    obs.disconnect();
   }, { threshold: 0.4 });
-  obs.observe(statsEl);
+  var hero = document.querySelector('.hero-counters');
+  if (hero) obs.observe(hero);
 })();
 
-/* ============================================================
-   7. PRODUCT FILTER
-   ============================================================ */
+/* ── 7. PRODUCT FILTER ────────────────────────────────── */
 (function () {
-  var filterBtns = document.querySelectorAll('.filter-btn');
-  var productCards = document.querySelectorAll('.product-card');
-  if (!filterBtns.length) return;
-
-  filterBtns.forEach(function (btn) {
+  var btns  = document.querySelectorAll('.pf-btn');
+  var cards = document.querySelectorAll('.prod-card');
+  if (!btns.length) return;
+  btns.forEach(function (btn) {
     btn.addEventListener('click', function () {
-      // Update active button
-      filterBtns.forEach(function (b) { b.classList.remove('active'); });
+      btns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
-
-      var filter = btn.getAttribute('data-filter');
-
-      productCards.forEach(function (card) {
-        var category = card.getAttribute('data-category');
-        if (filter === 'all' || category === filter) {
-          card.classList.remove('hidden');
-          // Re-trigger reveal animation
-          card.classList.remove('visible');
-          setTimeout(function () { card.classList.add('visible'); }, 30);
-        } else {
-          card.classList.add('hidden');
-        }
+      var f = btn.getAttribute('data-f');
+      cards.forEach(function (c) {
+        var show = f === 'all' || c.getAttribute('data-cat') === f;
+        c.classList.toggle('hidden', !show);
+        if (show) { c.classList.remove('visible'); setTimeout(function () { c.classList.add('visible'); }, 30); }
       });
     });
   });
 })();
 
-/* ============================================================
-   8. BACK TO TOP BUTTON
-   ============================================================ */
+/* ── 8. BACK TO TOP ───────────────────────────────────── */
 (function () {
-  var btn = document.getElementById('backToTop');
+  var btn = document.getElementById('backTop');
   if (!btn) return;
-
-  window.addEventListener('scroll', function () {
-    btn.classList.toggle('visible', window.scrollY > 400);
-  }, { passive: true });
-
-  btn.addEventListener('click', function () {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  });
+  window.addEventListener('scroll', function () { btn.classList.toggle('show', window.scrollY > 400); }, { passive: true });
+  btn.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
 })();
 
-/* ============================================================
-   9. SMOOTH SCROLL FOR ANCHOR LINKS
-   ============================================================ */
+/* ── 9. SMOOTH SCROLL ─────────────────────────────────── */
 (function () {
-  document.querySelectorAll('a[href^="#"]').forEach(function (anchor) {
-    anchor.addEventListener('click', function (e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
+  document.querySelectorAll('a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(this.getAttribute('href'));
+      if (!t) return;
       e.preventDefault();
-      var headerHeight = document.getElementById('header')
-        ? document.getElementById('header').offsetHeight
-        : 70;
-      var top = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+      var hh = document.getElementById('header') ? document.getElementById('header').offsetHeight : 70;
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - hh, behavior: 'smooth' });
     });
   });
 })();
 
-/* ============================================================
-   10. CONTACT FORM HANDLER
-   ============================================================ */
+/* ── 10. CONTACT FORM ─────────────────────────────────── */
 (function () {
   var form = document.getElementById('contactForm');
   if (!form) return;
-
   form.addEventListener('submit', function (e) {
     e.preventDefault();
-
-    // Basic validation
-    var name    = document.getElementById('name');
-    var phone   = document.getElementById('phone');
-    var message = document.getElementById('message');
-    var valid   = true;
-
-    [name, phone, message].forEach(function (field) {
-      if (!field) return;
-      if (!field.value.trim()) {
-        field.style.borderColor = '#e74c3c';
-        valid = false;
-      } else {
-        field.style.borderColor = '';
-      }
+    var fields = [document.getElementById('cfName'), document.getElementById('cfPhone'), document.getElementById('cfMsg')];
+    var ok = true;
+    fields.forEach(function (f) {
+      if (!f) return;
+      if (!f.value.trim()) { f.style.borderColor = '#e74c3c'; ok = false; }
+      else f.style.borderColor = '';
     });
-
-    if (!valid) return;
-
-    // Simulate form submission
-    var submitBtn = form.querySelector('[type="submit"]');
-    var original  = submitBtn.innerHTML;
-    submitBtn.disabled  = true;
-    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
-
+    if (!ok) return;
+    var sub = form.querySelector('[type="submit"]');
+    var orig = sub.innerHTML;
+    sub.disabled = true;
+    sub.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending…';
     setTimeout(function () {
-      submitBtn.innerHTML = original;
-      submitBtn.disabled  = false;
-      form.reset();
-      var success = document.getElementById('formSuccess');
-      if (success) {
-        success.style.display = 'flex';
-        setTimeout(function () { success.style.display = 'none'; }, 5000);
-      }
+      sub.disabled = false; sub.innerHTML = orig; form.reset();
+      var s = document.getElementById('cfSuccess');
+      if (s) { s.style.display = 'flex'; setTimeout(function () { s.style.display = 'none'; }, 5000); }
     }, 1600);
   });
 })();
 
-/* ============================================================
-   11. HERO BACKGROUND PARTICLES
-   ============================================================ */
+/* ── 11. PARTICLES ────────────────────────────────────── */
 (function () {
-  var container = document.getElementById('heroParticles');
-  if (!container) return;
-
-  var count = window.innerWidth < 600 ? 18 : 36;
-
-  for (var i = 0; i < count; i++) {
+  var c = document.getElementById('heroParticles');
+  if (!c) return;
+  var n = window.innerWidth < 600 ? 16 : 32;
+  for (var i = 0; i < n; i++) {
     var p = document.createElement('div');
     p.className = 'particle';
-
-    var size = Math.random() * 5 + 2;
-    p.style.cssText = [
-      'width:'            + size + 'px',
-      'height:'           + size + 'px',
-      'left:'             + (Math.random() * 100) + '%',
-      'top:'              + (Math.random() * 100) + '%',
-      'animation-duration:'  + (Math.random() * 12 + 8) + 's',
-      'animation-delay:'     + (Math.random() * 8) + 's',
-    ].join(';');
-
-    container.appendChild(p);
+    var s = Math.random() * 5 + 2;
+    p.style.cssText = 'width:' + s + 'px;height:' + s + 'px;left:' + (Math.random()*100) + '%;top:' + (Math.random()*100) + '%;animation-duration:' + (Math.random()*12+8) + 's;animation-delay:' + (Math.random()*8) + 's;';
+    c.appendChild(p);
   }
 })();
 
-/* ============================================================
-   12. GALLERY LIGHTBOX (simple overlay)
-   ============================================================ */
+/* ── 12. BANNER POPUP ─────────────────────────────────── */
+function openPopup() {
+  var ov = document.getElementById('bannerPopup');
+  if (!ov) return;
+  ov.classList.add('show');
+  document.body.style.overflow = 'hidden';
+}
+function closePopup() {
+  var ov = document.getElementById('bannerPopup');
+  if (!ov) return;
+  ov.classList.remove('show');
+  document.body.style.overflow = '';
+}
 (function () {
-  var items = document.querySelectorAll('.gallery-item');
-  if (!items.length) return;
-
-  // Build overlay
-  var overlay = document.createElement('div');
-  overlay.style.cssText = 'position:fixed;inset:0;background:rgba(0,0,0,.85);z-index:9000;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .3s;cursor:zoom-out;';
-  overlay.innerHTML = '<div style="text-align:center;color:#fff;padding:20px;"><div style="font-size:4rem;margin-bottom:12px;" id="lightboxIcon"></div><div style="font-size:1.2rem;font-weight:600;" id="lightboxTitle"></div><div style="font-size:.85rem;color:rgba(255,255,255,.5);margin-top:8px;">Click to close</div></div>';
-  document.body.appendChild(overlay);
-
-  items.forEach(function (item) {
-    item.addEventListener('click', function () {
-      var icon  = item.querySelector('.gallery-placeholder i');
-      var label = item.querySelector('.gallery-placeholder span');
-      document.getElementById('lightboxIcon').innerHTML  = icon ? icon.outerHTML : '';
-      document.getElementById('lightboxTitle').textContent = label ? label.textContent : '';
-      overlay.style.display = 'flex';
-      setTimeout(function () { overlay.style.opacity = '1'; }, 10);
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  overlay.addEventListener('click', function () {
-    overlay.style.opacity = '0';
-    setTimeout(function () {
-      overlay.style.display = 'none';
-      document.body.style.overflow = '';
-    }, 300);
-  });
+  var ov  = document.getElementById('bannerPopup');
+  if (!ov) return;
+  var cls = document.getElementById('popupClose');
+  var skp = document.getElementById('popupSkip');
+  var cta = document.getElementById('popupCta');
+  if (cls) cls.addEventListener('click', closePopup);
+  if (skp) skp.addEventListener('click', closePopup);
+  if (cta) cta.addEventListener('click', closePopup);
+  ov.addEventListener('click', function (e) { if (e.target === ov) closePopup(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape') closePopup(); });
 })();
 
-/* ============================================================
-   13. TOPBAR — hide on mobile scroll
-   ============================================================ */
+/* ── 13. TOPBAR HIDE ON MOBILE SCROLL ─────────────────── */
 (function () {
-  var topbar    = document.querySelector('.topbar');
-  if (!topbar) return;
-  var lastY = 0;
+  var tb = document.querySelector('.topbar');
+  if (!tb) return;
   window.addEventListener('scroll', function () {
-    if (window.innerWidth < 768) {
-      topbar.style.display = window.scrollY > 80 ? 'none' : '';
-    }
-    lastY = window.scrollY;
+    if (window.innerWidth < 768) tb.style.display = window.scrollY > 60 ? 'none' : '';
   }, { passive: true });
 })();
-
-/* ============================================================
-   EOF
-   ============================================================ */

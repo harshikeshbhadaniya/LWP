@@ -1,123 +1,91 @@
 /* ============================================================
-   PRODUCTS PAGE — SEARCH, FILTER & UTILITY JS
+   PRODUCTS PAGE — SEARCH & FILTER
    ============================================================ */
-
 'use strict';
 
 (function () {
+  var allCards   = Array.from(document.querySelectorAll('.cat-card'));
+  var catHeads   = Array.from(document.querySelectorAll('.cat-section-head'));
+  var countEl    = document.getElementById('pCount');
+  var emptyEl    = document.getElementById('emptyState');
+  var searchEl   = document.getElementById('pSearch');
+  var clearEl    = document.getElementById('pSearchClear');
+  var filterBtns = document.querySelectorAll('.p-cats .pf-btn');
+  var resetBtn   = document.getElementById('resetFilters');
 
-  /* ── All card elements ──────────────────────────────────── */
-  var allCards     = Array.from(document.querySelectorAll('.cat-card'));
-  var catHeaders   = Array.from(document.querySelectorAll('.cat-header'));
-  var resultCount  = document.getElementById('resultCount');
-  var emptyState   = document.getElementById('emptyState');
-  var searchInput  = document.getElementById('productSearch');
-  var clearBtn     = document.getElementById('clearSearch');
-  var filterBtns   = document.querySelectorAll('.cat-filter-wrap .filter-btn');
-  var resetBtn     = document.getElementById('resetSearch');
+  var curFilter = 'all';
+  var curSearch = '';
 
-  var currentFilter = 'all';
-  var currentSearch = '';
-
-  /* ── Render / filter ────────────────────────────────────── */
   function applyFilters() {
     var visible = 0;
-
     allCards.forEach(function (card) {
-      var cat  = card.getAttribute('data-category') || '';
+      var cat  = card.getAttribute('data-cat') || '';
       var name = (card.getAttribute('data-name') || '').toLowerCase();
       var text = (card.textContent || '').toLowerCase();
-
-      var matchFilter = (currentFilter === 'all') || (cat === currentFilter);
-      var matchSearch = !currentSearch ||
-        name.includes(currentSearch) ||
-        text.includes(currentSearch);
-
-      if (matchFilter && matchSearch) {
-        card.classList.remove('hidden');
-        card.classList.add('visible');   // re-trigger reveal
-        visible++;
-      } else {
-        card.classList.add('hidden');
-      }
+      var matchF = curFilter === 'all' || cat === curFilter;
+      var matchS = !curSearch || name.includes(curSearch) || text.includes(curSearch);
+      var show   = matchF && matchS;
+      card.classList.toggle('hidden', !show);
+      if (show) { card.classList.remove('visible'); setTimeout(function () { card.classList.add('visible'); }, 20); visible++; }
     });
 
-    /* Show/hide category headers based on visible cards in their group */
-    catHeaders.forEach(function (header) {
-      var id     = header.id;                  // e.g. "cat-fittings"
-      var catKey = id.replace('cat-', '');     // e.g. "fittings"
-      var hasVisible = allCards.some(function (c) {
-        return !c.classList.contains('hidden') &&
-               c.getAttribute('data-category') === catKey;
-      });
-      header.style.display = hasVisible ? '' : 'none';
+    // Show/hide category headers
+    catHeads.forEach(function (h) {
+      var key = h.id.replace('cat-', '');
+      var any = allCards.some(function (c) { return !c.classList.contains('hidden') && c.getAttribute('data-cat') === key; });
+      h.style.display = any ? '' : 'none';
     });
 
-    /* Update count */
-    if (resultCount) resultCount.textContent = visible;
-
-    /* Empty state */
-    if (emptyState) {
-      emptyState.style.display = visible === 0 ? 'block' : 'none';
-    }
+    if (countEl)  countEl.textContent = visible;
+    if (emptyEl)  emptyEl.style.display = visible === 0 ? 'block' : 'none';
   }
 
-  /* ── Search ─────────────────────────────────────────────── */
-  if (searchInput) {
-    searchInput.addEventListener('input', function () {
-      currentSearch = searchInput.value.trim().toLowerCase();
-      if (clearBtn) clearBtn.style.display = currentSearch ? 'flex' : 'none';
+  // Search
+  if (searchEl) {
+    searchEl.addEventListener('input', function () {
+      curSearch = searchEl.value.trim().toLowerCase();
+      if (clearEl) clearEl.style.display = curSearch ? 'flex' : 'none';
       applyFilters();
     });
   }
-
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      searchInput.value = '';
-      currentSearch = '';
-      clearBtn.style.display = 'none';
-      applyFilters();
-      searchInput.focus();
+  if (clearEl) {
+    clearEl.addEventListener('click', function () {
+      searchEl.value = ''; curSearch = ''; clearEl.style.display = 'none';
+      applyFilters(); searchEl.focus();
     });
   }
 
-  /* ── Category filter buttons ────────────────────────────── */
+  // Filter buttons
   filterBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       filterBtns.forEach(function (b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      currentFilter = btn.getAttribute('data-filter') || 'all';
+      curFilter = btn.getAttribute('data-f') || 'all';
       applyFilters();
     });
   });
 
-  /* ── Reset from empty state ─────────────────────────────── */
+  // Reset
   if (resetBtn) {
     resetBtn.addEventListener('click', function () {
-      currentFilter = 'all';
-      currentSearch = '';
-      if (searchInput) searchInput.value = '';
-      if (clearBtn)    clearBtn.style.display = 'none';
-      filterBtns.forEach(function (b) {
-        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
-      });
+      curFilter = 'all'; curSearch = '';
+      if (searchEl) searchEl.value = '';
+      if (clearEl)  clearEl.style.display = 'none';
+      filterBtns.forEach(function (b) { b.classList.toggle('active', b.getAttribute('data-f') === 'all'); });
       applyFilters();
     });
   }
 
-  /* ── Smooth scroll for in-page anchor links ─────────────── */
-  document.querySelectorAll('a[href^="#cat-"]').forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      var target = document.querySelector(this.getAttribute('href'));
-      if (!target) return;
-      e.preventDefault();
-      var offset = 140; // toolbar + header height
-      var top = target.getBoundingClientRect().top + window.scrollY - offset;
-      window.scrollTo({ top: top, behavior: 'smooth' });
+  // Smooth scroll for in-page anchor links (#cat-*)
+  document.querySelectorAll('a[href^="#cat-"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      var t = document.querySelector(this.getAttribute('href'));
+      if (!t) return; e.preventDefault();
+      var offset = 130;
+      window.scrollTo({ top: t.getBoundingClientRect().top + window.scrollY - offset, behavior: 'smooth' });
     });
   });
 
-  /* ── Initial count ──────────────────────────────────────── */
-  if (resultCount) resultCount.textContent = allCards.length;
-
+  // Set initial count
+  if (countEl) countEl.textContent = allCards.length;
 })();
